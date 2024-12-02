@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    // id("scala") // Убери комментарий, если хочешь использовать плагин Scala
+        //id("scala") // Убедитесь, что это включено
 }
 
 android {
@@ -45,32 +45,22 @@ android {
         getByName("main") {
             java.srcDirs("src/main/scala", "src/main/java")
             res.srcDir("src/main/res")
+            resources.srcDir("src/main/res")
         }
     }
 }
 
-
-repositories {
-    mavenCentral()
-    google()
-}
-
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("org.scala-lang:scala-library:2.13.15")
+    implementation(project(":scala-core"))
+    implementation("org.scala-lang:scala-library:2.13.15") // Убедитесь, что эта библиотека включена
 }
+
+//tasks.withType<org.gradle.api.tasks.compile.JavaCompile>().configureEach {
+//    dependsOn("compileScala")
+//}
+//
+//tasks.named<org.gradle.api.tasks.scala.ScalaCompile>("compileScala") {
+//    source = fileTree("src/main/scala")
+//    classpath = sourceSets["main"].compileClasspath
+//    destinationDirectory.set(file("build/intermediates/javac/debug/classes"))
+//}

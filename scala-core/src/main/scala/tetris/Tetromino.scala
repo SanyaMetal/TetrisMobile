@@ -1,5 +1,3 @@
-package com.example.tetrismobile.tetris
-
 //import tetris.Tetromino.shapes
 
 import scala.util.Random

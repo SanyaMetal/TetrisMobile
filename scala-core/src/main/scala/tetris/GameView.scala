@@ -1,5 +1,3 @@
-package com.example.tetrismobile.tetris
-
 import android.content.Context
 import android.graphics.{Canvas, Paint}
 import android.view.{MotionEvent, SurfaceHolder,SurfaceView}

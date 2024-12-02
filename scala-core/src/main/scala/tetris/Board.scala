@@ -1,11 +1,9 @@
-package com.example.tetrismobile.tetris
-
 class Board (val width: Int, val height: Int){
   val invisibleRows = 3
   val totalHeight = height + invisibleRows
 
   val grid = Array.ofDim[Int](totalHeight,width)
-  val colors: Array.ofDim[Int](totalHeight,width)
+  val colors = Array.ofDim[Int](totalHeight,width)
 
   var score:Int = 0
   var level:Int = 1

@@ -19,5 +19,8 @@ dependencyResolutionManagement {
     }
 }
 
+
+
 rootProject.name = "TetrisMobile"
-include(":app")
+include(":app", ":scala-core")
+include(":scala-core")
